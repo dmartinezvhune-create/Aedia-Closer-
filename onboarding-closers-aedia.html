@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#060606">
+<meta name="description" content="Material interno del equipo de cierre para la cuenta de AEDIA.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding closers AEDIA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 6px 48px;
+  }
+  .brand-client{
+    font-size:.72rem; margin:0 0 24px 48px; color:var(--ink-faint);
+  }
+  .brand-client strong{color:var(--gold-soft);}
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar a.sourced{color:var(--ink); font-weight:700;}
+  nav.sidebar a.sourced:hover{color:var(--gold-soft);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.72rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+
+  .calc-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--line);}
+  .calc-row label{color:var(--ink); font-size:.92rem;}
+  .calc-row input{width:130px; background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold-soft); font-family:'DM Sans',sans-serif; font-size:1rem; padding:8px 10px; border-radius:4px; text-align:right;}
+  .calc-row input:focus{outline:none; border-color:var(--gold);}
+  @media (max-width:700px){
+    table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    td.label{white-space:normal;}
+    .calc-row input{width:100px;}
+  }
+  .pend{display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:2px; color:#D9B26A; border:1px dashed var(--gold-dim); margin-left:8px; vertical-align:middle; font-family:'Cinzel',serif;}
+  .calc-sep{margin:22px 0 4px; font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-dim);}
+  details.acc .acc-body ul{margin:.5em 0; padding-left:18px;}
+  details.acc .acc-body li{margin-bottom:6px;}
+  .pitch-frame{margin-top:18px; border:1px solid var(--gold-dim); border-radius:var(--radius); overflow:hidden; background:#000;}
+  .pitch-frame iframe{display:block; width:100%; height:760px; border:0;}
+  button.pitch-open{background:var(--gold); color:#060606; border:none; font-family:'Cinzel',serif; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:12px 20px; border-radius:4px; cursor:pointer;}
+  button.pitch-open:hover{background:var(--gold-soft);}
+  @media (max-width:700px){ .pitch-frame iframe{height:600px;} }
+  .pay-card span.link{display:block; font-size:.72rem; color:var(--ink-faint); background:#000; padding:8px 10px; border-radius:4px; border:1px dashed var(--line);}
+
+  /* Texto justificado sin distorsión: sin guiones, sin estirar líneas cortas */
+  p, li, .say, .callout, .card p, .phase-body p, .acc-body p, tbody td, .hero .lede, .subnote{
+    text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none;
+    text-align-last:left;
+  }
+  td.label, .amount, .plan, .pill, .section-tag, h1, h2, h3, h4, .checklist li, .topbar, .brand-client, .brand-tagline, nav.sidebar a, .pay-card .subnote, .hero .promise{
+    text-align:left;
+  }
+
+  /* ===== Diseño web Closer Search ===== */
+  body{padding-top:76px;}
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,6,6,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-inner{max-width:1180px; margin:0 auto; padding:0 28px; height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .logo{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo svg{width:38px; height:38px; flex:0 0 auto;}
+  .logo-text{display:flex; flex-direction:column; line-height:1.15;}
+  .logo .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:1.02rem; color:#fff; letter-spacing:.08em;}
+  .logo .brand-name .search{color:var(--gold);}
+  .logo-sub{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.86rem; color:var(--ink-faint);}
+  .site-nav{display:flex; align-items:center; gap:6px;}
+  .site-nav > a, .dd-btn{color:var(--ink-dim); text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; padding:10px 14px; background:none; border:none; cursor:pointer; border-radius:4px;}
+  .site-nav > a:hover, .dd-btn:hover, .dd:focus-within .dd-btn{color:var(--gold-soft);}
+  .caret{font-size:.7rem; opacity:.7;}
+  .dd{position:relative;}
+  .dd-menu{position:absolute; top:100%; left:0; min-width:270px; background:var(--void-soft); border:1px solid var(--line); border-top:2px solid var(--gold); border-radius:0 0 6px 6px; padding:8px 0; display:none; box-shadow:0 18px 40px rgba(0,0,0,.5);}
+  .dd:hover .dd-menu, .dd:focus-within .dd-menu{display:block;}
+  .dd-menu a{display:block; padding:9px 18px; color:var(--ink-dim); text-decoration:none; font-size:.88rem;}
+  .dd-menu a:hover{color:var(--gold-soft); background:var(--gold-glow, rgba(201,168,76,.08));}
+  .site-nav > a.nav-cta{background:var(--gold); color:#060606; font-weight:600; margin-left:8px; padding:11px 20px;}
+  .site-nav > a.nav-cta:hover{background:var(--gold-soft); color:#060606;}
+  .menu-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; width:44px; height:44px; cursor:pointer; flex-direction:column; justify-content:center; align-items:center; gap:5px;}
+  .menu-toggle span{display:block; width:20px; height:2px; background:var(--gold);}
+  main{max-width:none;}
+  section{scroll-margin-top:90px;}
+  .web-hero{padding:96px max(28px, calc((100% - 1124px) / 2)) 70px; max-width:none; margin:0; border-bottom:1px solid var(--line);
+    background:radial-gradient(ellipse at 85% 0%, rgba(201,168,76,.13), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(201,168,76,.05), transparent 50%);}
+  .web-hero h1{font-size:3.6rem; line-height:1.08; max-width:900px; letter-spacing:-.01em;}
+  .web-hero h1 em{font-style:italic; color:var(--gold);}
+  .web-hero .lede{max-width:720px; font-size:1.12rem;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+  .btn-primary, .btn-secondary{display:inline-block; text-decoration:none; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.95rem; padding:15px 26px; border-radius:4px; transition:.15s;}
+  .btn-primary{background:var(--gold); color:#060606;}
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-secondary{border:1px solid var(--gold-dim); color:var(--gold-soft);}
+  .btn-secondary:hover{border-color:var(--gold); color:var(--gold);}
+  .hero-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:46px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; max-width:900px;}
+  .hero-stats > div{background:var(--void-soft); padding:20px 18px;}
+  .hero-stats .n{display:block; font-family:'Cormorant Garamond',serif; font-weight:700; font-size:2rem; color:var(--gold); line-height:1;}
+  .hero-stats .l{display:block; font-size:.78rem; color:var(--ink-dim); margin-top:8px; line-height:1.35;}
+  .hero-meta{margin-top:26px; font-size:.8rem; color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:8px;}
+  .hero-meta strong{color:var(--gold); font-weight:600;}
+  .web-hero .promise{max-width:900px;}
+  .site-footer{max-width:none; margin-top:40px; padding:56px 28px 30px; background:var(--void-soft); border-top:1px solid var(--line); display:block; text-align:left;}
+  .ft-grid{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:34px;}
+  .ft-grid h5{font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:0 0 12px;}
+  .ft-grid a, .ft-grid span{display:block; color:var(--ink-dim); text-decoration:none; font-size:.88rem; margin-bottom:8px;}
+  .ft-grid a:hover{color:var(--gold-soft);}
+  .ft-brand p{font-size:.88rem; color:var(--ink-faint); margin-top:14px; max-width:300px; text-align:left;}
+  .ft-brand .logo span{display:inline; margin:0;}
+  .ft-brand .logo .logo-text{display:flex;}
+  .ft-bottom{max-width:1180px; margin:34px auto 0; padding-top:20px; border-top:1px solid var(--line); font-size:.78rem; color:var(--ink-faint);}
+  .site-footer svg{width:38px; height:38px; opacity:1;}
+  @media (max-width:980px){
+    .menu-toggle{display:flex;}
+    header.site{backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--void);}
+    .site-nav{display:none; position:fixed; top:76px; left:0; right:0; height:calc(100vh - 76px); background:var(--void); flex-direction:column; align-items:stretch; gap:0; padding:12px 22px 40px; overflow-y:auto; border-top:1px solid var(--line);}
+    body.menu-open .site-nav{display:flex;}
+    .site-nav > a, .dd-btn{padding:14px 4px; font-size:1rem; text-align:left; border-bottom:1px solid var(--line); border-radius:0;}
+    .dd-btn{width:100%;}
+    .dd-menu{display:block; position:static; border:none; box-shadow:none; background:none; padding:0 0 8px 12px; min-width:0;}
+    .dd-menu a{padding:10px 4px;}
+    .site-nav > a.nav-cta{margin:18px 0 0; text-align:center; border-bottom:none;}
+    .web-hero{padding:56px 22px 46px;}
+    .site-inner{padding:0 18px;}
+    .web-hero h1{font-size:2.3rem;}
+    .hero-stats{grid-template-columns:1fr 1fr;}
+    .ft-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .web-hero h1{font-size:2rem;}
+    .logo-sub{display:none;}
+    .ft-grid{grid-template-columns:1fr;}
+    .btn-primary,.btn-secondary{width:100%; text-align:center;}
+  }
+
+  .calc-sel{max-width:60%;background:var(--void-card);border:1px solid var(--gold-dim);color:var(--gold-soft);font-family:'DM Sans',sans-serif;font-size:.92rem;padding:8px 10px;border-radius:4px}
+  .calc-row input{width:150px}
+  details.acc summary .sum-meta{display:flex;align-items:center;gap:10px;font-weight:500;color:var(--ink-dim);font-size:.85rem;margin-left:auto;margin-right:14px;white-space:nowrap}
+  details.acc summary{gap:10px}
+  .pill-a{background:var(--gold);color:#060606;border-color:var(--gold)}
+  .pill-b{background:rgba(201,168,76,.1);color:var(--gold)}
+  .pill-c{background:transparent;color:var(--ink-faint);border-color:var(--line)}
+  td .pill{margin:0}
+  td.label.wrap{white-space:normal}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  details.acc table td.label{width:30%}
+  details.acc table{margin-top:4px}
+  .checklist li span, .pay-card .subnote, .hero .promise, .promise, .ft-brand p, .box li, .card li{text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none; text-align-last:left}
+  @media (max-width:700px){ .calc-row{flex-wrap:wrap} .calc-sel{max-width:100%;width:100%} details.acc summary .sum-meta{display:none} }
+
+
+
+  .card ul{margin:8px 0 0;padding-left:18px} .card ul li{margin-bottom:6px}
+  .checklist li{display:flex;gap:12px;align-items:flex-start}
+  .checklist li span:last-child{text-align:justify;text-align-last:left}
+  .portal{align-items:stretch} .portal-card{display:flex;flex-direction:column;padding:30px}
+  .portal-card h2{margin-top:6px} .portal-card ul{margin:10px 0 24px;padding-left:18px;flex:1} .portal-card li{margin-bottom:8px}
+  .portal-card .btn-primary{align-self:flex-start} .portal-wide{margin-top:16px}
+  @media (max-width:700px){ .portal-card .btn-primary{align-self:stretch} }
+
+</style>
+</head>
+<body>
+<header class="site" id="siteHeader"><div class="site-inner"><a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a><button class="menu-toggle" type="button" aria-label="Abrir el menú" id="mt"><span></span><span></span><span></span></button><nav class="site-nav" id="sn"><a href="index.html">Inicio</a><div class="dd"><button class="dd-btn" type="button">Onboarding <span class="caret">▾</span></button><div class="dd-menu"><a href="#resumen">Resumen ejecutivo</a><a href="#cifras">Datos y cifras mencionados</a><a href="#fundae">Cómo funciona FUNDAE en la operativa de AEDIA</a><a href="#crm">Operativa del CRM</a><a href="#ideas">Ideas de venta que dio AEDIA</a><a href="#pasos">Próximos pasos</a><a href="#transcripcion">Transcripción ordenada</a></div></div><a href="playbook-aedia.html">Playbook</a><a href="vocabulario-aedia.html">Vocabulario</a><a href="informe-operativo-aedia.html">Informe operativo</a><a class="nav-cta" href="guia-llamada-aedia.html">Guía de llamada</a></nav></div></header><style>.a-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:14px}
+.a-box{background:#0b0b0b;border:1px solid #222;border-radius:8px;padding:16px 18px;min-width:0}
+.a-box h3,#top section h3{font-family:Cinzel,serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9A84C;margin:14px 0 8px}
+.a-box h3{margin-top:0}
+.a-tbl{overflow-x:auto;margin-top:12px}.a-tbl table{width:100%}
+td.a-n{color:#C9A96E}
+.a-tbl td,.a-tbl th{text-align:left!important;text-align-last:left;word-spacing:normal}.a-tbl td:first-child{width:42%}
+.a-risk{background:rgba(224,138,122,.10);border:1px solid rgba(224,138,122,.35);border-left:3px solid #E08A7A;padding:14px 16px;border-radius:6px;margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.a-risk b{color:#E08A7A}
+.a-note{background:rgba(201,168,76,.10);border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;margin-top:14px}
+.a-flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.06em;margin-top:12px}
+.a-flow span{background:#0b0b0b;border:1px solid #C9A84C;color:#C9A96E;border-radius:3px;padding:5px 9px}.a-flow i{font-style:normal;color:#999}
+.a-stage{font-family:Cinzel,serif;font-size:12px;letter-spacing:.04em;color:#C9A84C}
+.a-tramo{display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 18px;padding:14px 0;border-top:1px solid #222}
+.a-tramo .a-t{font-family:Cinzel,serif;font-size:12px;color:#C9A84C;padding-top:3px;font-variant-numeric:tabular-nums}
+.a-tramo div{min-width:0}.a-who{font-weight:600;color:#C9A96E}
+#top section ul,#top section ol{margin:.6em 0;padding-left:20px}#top section li{margin-bottom:6px}
+@media(max-width:560px){.a-tramo{grid-template-columns:1fr}}</style>
+<main id="top">
+<div class="hero web-hero">
+  <div class="eyebrow"><svg viewBox="0 0 100 100" fill="none" width="16" height="16"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="6" fill="none"/></svg>Onboarding de las closers · Uso exclusivo del equipo</div>
+  <h1>Onboarding con AEDIA. <em>Todo lo que se explicó en la primera sesión.</em></h1>
+  <p class="lede">Acta de la sesión de arranque con Abraham y Macarena: cómo trabaja AEDIA, las cifras, cómo funciona FUNDAE, la operativa del CRM, las ideas de venta, los próximos pasos y la transcripción ordenada por tramos.</p>
+  <div class="hero-ctas"><a class="btn-primary" href="#crm">Operativa del CRM</a><a class="btn-secondary" href="#fundae">Cómo funciona FUNDAE</a></div>
+  <div class="hero-meta"><span><strong>Duración</strong> 1 h 43 min</span><span class="dot">·</span><span>Charo, Elena, Abraham, Macarena y David Martínez-Bayer</span><span class="dot">·</span><span>Confidencial</span></div>
+</div>
+
+
+<section id="resumen">
+  <div class="section-tag">01 · Onboarding</div>
+  <h2>Resumen ejecutivo</h2>
+  <p>Primera sesión de arranque de Charo y Elena como closers de AEDIA. AEDIA explica su situación: tiene muchos leads de formación bonificada (FUNDAE) en IA, pero ha perdido ventas por no poder hacer seguimiento. La clave del negocio es conseguir que la empresa envíe la <b>encomienda</b>: cuando llega, el 95 % acaba en venta. Las closers se centran en llamar, hacer seguimiento y cerrar; Macarena asume toda la parte administrativa. Abraham enseña el CRM: asignación automática por turnos, etapas, notas, scoring, mensajería y automatizaciones. Ya hay unos 270 leads cualificados en “Presentación de propuestas” repartidos entre las dos. Mañana sigue la formación con el catálogo de cursos.</p>
+
+  <div class="a-grid">
+    <div class="a-box"><h3>La oportunidad</h3><p>Media actual de unos 500 leads al mes, objetivo de 800 en 2027. Presupuesto de campañas casi duplicado. Nuevas campañas de ciberseguridad y Google en diciembre.</p></div>
+    <div class="a-box"><h3>El problema que se resuelve</h3><p>Hasta ahora: dos llamadas, un correo y el lead se daba por perdido. Muchos interesados no se volvieron a llamar. Ahí está la venta que se escapa.</p></div>
+    <div class="a-box"><h3>El reparto de tareas</h3><p>Closers: llamada, seguimiento y cierre. Macarena: créditos FUNDAE, cobro, contrato, ficha de alumno y altas. Abraham: CRM, web y campañas de correo.</p></div>
+    <div class="a-box"><h3>Palanca de venta</h3><p>Un empleado informado arrastra a otros de su empresa. Lo normal es que un lead acabe en varias matrículas. Esas ventas son de la closer que llevó el lead.</p></div>
+  </div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="cifras">
+  <div class="section-tag">02 · Onboarding</div>
+  <h2>Datos y cifras mencionados</h2>
+  <div class="a-tbl"><table>
+    <thead><tr><th>Concepto</th><th>Dato</th></tr></thead>
+    <tbody>
+      <tr><td>Leads al mes</td><td class="a-n">≈ 500 ahora · objetivo 800 en 2027</td></tr>
+      <tr><td>Leads no válidos</td><td class="a-n">5–6 %</td></tr>
+      <tr><td>Coste por lead</td><td class="a-n">7–12 €</td></tr>
+      <tr><td>Cierre con encomienda entregada</td><td class="a-n">≈ 95 %</td></tr>
+      <tr><td>Cursos estándar (Microsoft, marketing, salud, transporte…)</td><td class="a-n">660 € · se ajustan a ≈ 420–460 € si el crédito no llega</td></tr>
+      <tr><td>Low-code</td><td class="a-n">≈ 800 € (sin descuento)</td></tr>
+      <tr><td>Toolkit (básico)</td><td class="a-n">≈ 210 €</td></tr>
+      <tr><td>Reglamento de IA (formación de cumplimiento)</td><td class="a-n">≈ 120 € por empleado · 15–16 h</td></tr>
+      <tr><td>Máster</td><td class="a-n">≈ 2.200 € · casi siempre de pago</td></tr>
+      <tr><td>Ingeniería / máster superior</td><td class="a-n">3.900 €</td></tr>
+      <tr><td>Leads en Presentación de propuestas</td><td class="a-n">≈ 273–277, repartidos al azar (≈ 90 por closer)</td></tr>
+      <tr><td>Cierre negociación</td><td class="a-n">27 (≈ 17 tras la limpieza)</td></tr>
+      <tr><td>Llamadas agendadas</td><td class="a-n">30</td></tr>
+      <tr><td>Leads de un webinar</td><td class="a-n">93 gratuitos</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">Cifras tal como se dijeron en la reunión; conviene confirmarlas con AEDIA antes de usarlas en la guía de ventas.</p>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="fundae">
+  <div class="section-tag">03 · Onboarding</div>
+  <h2>Cómo funciona FUNDAE en la operativa de AEDIA</h2>
+  <ul>
+    <li><b>Primera llamada:</b> casi nunca se cierra. El lead suele querer intentarlo primero por FUNDAE con su empresa.</li>
+    <li><b>Encomienda:</b> la empresa la envía y Macarena consulta los créditos. Si hay crédito, la empresa está al corriente con Hacienda y Seguridad Social (no hay otra forma de saberlo).</li>
+    <li><b>Descuentos:</b> no se dice la cifra hasta saber cuántas personas y cuánto crédito hay. Se deciden con Macarena o Abraham.</li>
+    <li><b>Pago:</b> AEDIA cobra al contratar, no al terminar. Se comunica el inicio a FUNDAE con 3 días hábiles; en ese margen la empresa paga y entrega ficha de alumno (nombre, teléfono, email, DNI) y contrato de prestación de servicios. Hay flexibilidad si la empresa paga unos días más tarde.</li>
+    <li><b>Bonificación:</b> el alumno tiene que hacer la formación entre las fechas de inicio y fin, con conexiones y tareas entregadas. AEDIA avisa por correo a quien va retrasado. Solo hubo un caso sin bonificar el año pasado (no entró nunca).</li>
+    <li><b>Bonificación parcial:</b> se puede bonificar lo que cubra el crédito y pagar el resto.</li>
+    <li><b>Autónomo sin empleados:</b> no puede bonificar; tiene que pagar. Casi nunca cierra.</li>
+    <li><b>Títulos:</b> FUNDAE emite el diploma al empleado; AEDIA puede emitir su propio título verificable con blockchain.</li>
+  </ul>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section>
+  <div class="a-risk">
+    <p><b>Punto a revisar antes de la guía de ventas.</b> En la reunión se comentaron dos prácticas: que el dueño de una empresa haga el curso con el acceso de un empleado al que se le bonifica, y que en un caso de ikastolas sean los directores quienes hagan la formación bonificada a nombre de profesores. Esto puede chocar con las reglas de FUNDAE sobre quién es el participante bonificado. Recomiendo no incluirlo como argumento en la guía y que las closers no lo planteen hasta que AEDIA confirme que cumple la normativa.</p>
+  </div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="crm">
+  <div class="section-tag">04 · Onboarding</div>
+  <h2>Operativa del CRM</h2>
+  <div class="a-flow">
+    <span>Por contactar</span><i>→</i><span>Seguimiento</span><i>→</i><span>Llamada agendada</span><i>→</i><span>Presentación de propuesta</span><i>→</i><span>Cierre negociación</span><i>→</i><span>Venta cerrada</span>
+  </div>
+  <div class="a-tbl"><table>
+    <thead><tr><th>Etapa</th><th>Qué significa y qué hacer</th></tr></thead>
+    <tbody>
+      <tr><td class="a-stage">Por contactar</td><td>Lead nuevo, asignado solo. Llamar; si no contesta, nota y reintento al día siguiente. Tras unos dos días sin respuesta, pasar a Seguimiento.</td></tr>
+      <tr><td class="a-stage">Seguimiento</td><td>Automático: WhatsApp y correo con enlace para agendar cita. A los 15 días sin contacto pasa solo a Imposible contactar.</td></tr>
+      <tr><td class="a-stage">Llamada agendada</td><td>Se mueve sola al agendar. Recordatorios automáticos 24 h y 1 h antes. Las citas salen en el calendario.</td></tr>
+      <tr><td class="a-stage">Presentación de propuesta</td><td>Lead informado, interesado y con temario y encomienda enviados. Correo automático a los 2 días; llamada hacia los 8–10 días. A los 40 días pasa a seguimiento a largo plazo.</td></tr>
+      <tr><td class="a-stage">Cierre negociación</td><td>Encomienda entregada o pendiente de pago.</td></tr>
+      <tr><td class="a-stage">Venta cerrada</td><td>Pagado.</td></tr>
+      <tr><td class="a-stage">Descartado / rechazado</td><td>Lead que no vale o que no quiere (por ejemplo, autónomo que no quiere pagar).</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="a-grid">
+    <div class="a-box"><h3>Orden del día</h3><ol>
+      <li>Por contactar, de abajo arriba (lo más antiguo primero).</li>
+      <li>Llamadas agendadas según el calendario.</li>
+      <li>Entre llamada y llamada, más Por contactar.</li>
+      <li>Si está limpio: Seguimiento.</li>
+      <li>Después: Presentación de propuestas.</li>
+    </ol></div>
+    <div class="a-box"><h3>Señales del CRM</h3><ul>
+      <li><b>Asignación:</b> lo que entra por la mañana va a la closer de mañana; lo de la tarde, a la de tarde. Lo hace un proceso cada hora.</li>
+      <li><b>Azul:</b> reentrada, el lead ha vuelto a pedir información.</li>
+      <li><b>Verde:</b> el lead ha escrito por WhatsApp o correo.</li>
+      <li><b>Notas:</b> registrar cada intento; se guardan con fecha.</li>
+      <li><b>Scoring:</b> de 0 a 3 según interés.</li>
+      <li><b>Lista negra:</b> para leads que repiten sin intención (cada lead cuesta dinero).</li>
+    </ul></div>
+  </div>
+
+  <div class="a-grid">
+    <div class="a-box"><h3>Cuando llega una encomienda</h3><p>Si llega por WhatsApp, reenviarla a Macarena. Si llega por correo, Macarena está en copia automática. Su respuesta y todo el historial se ven en la ficha del lead.</p></div>
+    <div class="a-box"><h3>Origen del lead</h3><p>Formulario web: muy cualificado. Meta e Instagram. Asistentes de IA (ChatGPT, Gemini, Claude): cualificado, ya sabe de IA. Campaña generalista: preguntar sector y herramientas para recomendar curso.</p></div>
+  </div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="ideas">
+  <div class="section-tag">05 · Onboarding</div>
+  <h2>Ideas de venta que dio AEDIA</h2>
+  <ul>
+    <li>No perder un cierre por una objeción menor: AEDIA prefiere ajustar y cerrar.</li>
+    <li>Muchos leads no saben qué es FUNDAE; hay que explicarlo desde cero. Otros lo conocen como “la antigua tripartita”.</li>
+    <li>El reglamento europeo de IA obliga a formar a empleados que usan IA: argumento para formaciones de cumplimiento a grupos.</li>
+    <li>Quien ya hizo un curso del SEPE que no le sirvió suele cerrar: diferencia con la metodología práctica, tutor, tareas con feedback y acceso de por vida.</li>
+    <li>Low-code solo para quien quiere aprender de verdad. Decirle “esto no es para ti” si no va a dedicarle tiempo funciona.</li>
+    <li>Las herramientas (n8n, Make, Microsoft) las paga el alumno; casi todo se puede hacer con versiones gratuitas o de pocos euros al mes.</li>
+    <li>Final de año: las empresas descubren créditos sin gastar y quieren usarlos.</li>
+  </ul>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="pasos">
+  <div class="section-tag">06 · Onboarding</div>
+  <h2>Próximos pasos</h2>
+  <ol>
+    <li><b>Mañana:</b> segunda sesión con el catálogo de formaciones y dudas del CRM.</li>
+    <li><b>Charo y Elena:</b> ver el webinar de mañana (SDD, con Álex Valtarri y Marc) para coger contexto. Abraham ya envió el enlace.</li>
+    <li><b>Charo y Elena:</b> empezar por los ≈ 90 leads cada una de Presentación de propuestas: seguimiento y cierre.</li>
+    <li><b>David:</b> terminar la guía de ventas con los enlaces de pago y el informe.</li>
+    <li><b>David:</b> preparar un vocabulario de términos de IA (SDD, n8n, Make, low-code…).</li>
+    <li><b>David:</b> aclarar con AEDIA el punto de bonificaciones marcado arriba.</li>
+    <li><b>Abraham:</b> campañas de correo bajo petición (por ejemplo Black Friday) y cambios de CRM. Ya cambió el nombre de Elena en el CRM.</li>
+  </ol>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+
+<section id="transcripcion">
+  <div class="section-tag">07 · Onboarding</div>
+  <h2>Transcripción ordenada</h2>
+  <p class="a-note">La transcripción original está bien captada pero mezcla castellano y catalán y tiene frases cortadas. Aquí va limpia y resumida en castellano, por tramos de tiempo, con quién habla cuando se identifica.</p>
+
+  <div>
+    <div class="a-tramo"><span class="a-t">00:08–01:26</span><div><p>Saludos. <span class="a-who">Charo</span> se presenta: llevará la parte comercial y es su primera experiencia como closer. <span class="a-who">Elena</span> se presenta: tiene larga experiencia comercial, trabaja como closer y conoce bien la formación FUNDAE.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">01:29–02:34</span><div><p><span class="a-who">Abraham</span> se presenta: lleva la parte técnica de las formaciones, coordina tutores y ha organizado con David el arranque. Para cualquier cosa de la web o del CRM, que le escriban sin problema.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">02:40–04:32</span><div><p><span class="a-who">Macarena</span> (gestión y llamadas) da la bienvenida. Dice que a mucha gente hay que explicarle FUNDAE desde cero. Ofrece a Charo una sesión aparte para repasarlo. Charo comenta que se ha estado informando y le parece sencillo.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">04:49–06:09</span><div><p>AEDIA presenta el contexto: son ingenieros de IA, han crecido mucho y para 2027 casi duplican la inversión en campañas, que lleva Lead&amp;Go. Solo un 5–6 % de leads no valen. Preparan una campaña de ciberseguridad y dos de Google para diciembre.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">06:09–08:50</span><div><p>Reconocen su fallo: no tenían capacidad para hacer seguimiento. Hacían dos llamadas, un correo o WhatsApp y, si no contestaba, se perdía. Hubo gente muy interesada a la que no se volvió a llamar. Aun así cerraron bastante. Por eso confían en la fuerza de venta de las closers.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">08:50–11:31</span><div><p><span class="a-who">David</span> explica que trabaja con Abraham en la documentación habitual. Falta información para cerrar la guía de ventas, que llevará todos los enlaces de pago. Lo pendiente es entender bien FUNDAE y qué se ofrece al prospecto. Las guías se ajustan sobre la marcha: los cambios suelen estar en 24 horas. Se bromea con lo sencillo que es el CRM.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">11:31–14:39</span><div><p>AEDIA destaca su plataforma de estudio como argumento de venta y que todo su software es propio. El 95 % de lo que entra es FUNDAE. Si la empresa entrega la encomienda firmada, el 95 % se cierra, aunque tarde semanas. Ejemplo: una fundación del sector salud cerrada hoy, tras 20 días. Si una empresa pequeña tiene 420 € de crédito y el curso cuesta 660 €, se lo dejan en 420 para no perder la venta.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">14:44–16:35</span><div><p>Flujo de la encomienda: la closer la recibe, la pasa a administración, Macarena consulta créditos en FUNDAE y envía un correo con la closer en copia. Los cursos de 660 € (la mayoría, como Microsoft) se pueden dejar en unos 460 €. Cuando llega la respuesta de FUNDAE pasa a cierre y la closer lo ve en su ficha.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">16:35–19:34</span><div><p>Lo bueno: un lead suele traer varias ventas. Recursos Humanos descubre la formación y la extiende a más empleados; esas ventas son de la closer. Ejemplos: una empresa con 26 alumnos y 36 cierres el mes pasado. Reglamento de IA: las empresas deben formar a quien use IA; AEDIA tiene una formación de cumplimiento a unos 120 € por empleado. Un cliente con 12 empleados cerró 10 de golpe.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">19:34–22:48</span><div><p>Presupuestos a medida para grupos grandes: se preparan con Macarena y Abraham. Ejemplo de llamada: preguntar cuántas personas usan IA, consultar créditos y no concretar el descuento hasta tener el número exacto. Al principio cuesta unos días que la rueda gire. Final de año es buen momento porque las empresas quieren gastar crédito.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">22:48–25:13</span><div><p>Ahora el lead entra despistado por la actualidad. El precio frena a quien no tiene FUNDAE. Aunque FUNDAE permite pagar al final, AEDIA cobra al contratar. Se comunica el inicio con 3 días hábiles; en ese margen se paga y se completa ficha de alumno y contrato. Hay flexibilidad con fechas de pago y nunca ha fallado un cobro.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">25:19–30:01</span><div><p><span class="a-who">Elena</span> pregunta cómo saber si una empresa tiene deudas con Hacienda o Seguridad Social. Respuesta: no se puede saber; si la consulta de créditos funciona, está al corriente. Para bonificar, el alumno tiene que hacer la formación en plazo, con conexiones y tareas. AEDIA avisa a quien va retrasado. Solo un caso el año pasado no se bonificó porque no entró nunca.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">30:10–33:26</span><div><p>Bonificación parcial: se bonifica lo que cubre el crédito y el resto se paga. El autónomo sin empleados no puede bonificar y casi nunca cierra. Se comenta que, con empleados, el dueño podría hacer el curso con el acceso de un empleado. AEDIA puede emitir su propio título con blockchain.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">33:26–38:43</span><div><p>Mucha gente no quiere el título, quiere aprender. Caso de las ikastolas del País Vasco: se va a cerrar una formación bonificada y los directores accederán a ella. Mensaje de AEDIA: si hay alguien a tiro, cerrarlo; ellos se encargan de que encaje. Tienen la plataforma, los contenidos y los agentes de IA; lo que necesitan es cierre.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">39:08–43:17</span><div><p><span class="a-who">Charo</span> pregunta qué hace la closer a nivel operativo. Respuesta: cerrar y enviar el contrato de encomienda. Si llega por WhatsApp, se reenvía a Macarena; por correo, Macarena está en copia. El CRM guarda todo el historial. Macarena se encarga del cobro, FUNDAE, contrato, ficha de alumno y accesos. La ficha pide nombre, apellidos, teléfono, email y DNI. La clave: muchas llamadas y muchas encomiendas, sin perder tiempo en administración.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">43:17–47:28</span><div><p>Están abiertos a mejoras. Media actual de unos 500 leads al mes; objetivo de 800 en 2027 y cada vez más cualificados. Hay un embudo que avisa al autónomo sin empleados de que tendrá que pagar. Toolkit básico de unos 210 €. Quien hizo un curso del SEPE que no le sirvió suele cerrar. Metodología: videoclases, tutor, tareas con feedback, acceso de por vida y actualizaciones.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">47:35–51:30</span><div><p><span class="a-who">Abraham</span> enseña el CRM. Filtrando por closer se ven sus leads. Hay unos 273–277 en Presentación de propuestas repartidos al azar: gente interesada a la que ya se envió la encomienda, para seguimiento y cierre. Elena pide que cambien su nombre en el CRM y se hace al momento. Hay leads del último mes o dos que se pueden rescatar.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">51:35–56:03</span><div><p>Seguimiento: hasta ahora solo dos o tres llamadas. En Seguimiento el sistema envía WhatsApp y correo al tercer día y a los 15 días sin contacto pasa a Imposible contactar. Cada intento se apunta en notas con fecha. Asignación automática por turno: mañana o tarde, cada hora.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">56:03–59:28</span><div><p>Agendar cita desde la ficha: recordatorios automáticos 24 h y 1 h antes. Calendario con todas las citas. Scoring de 0 a 3. Ejemplo de llamada a un lead que no recibió la encomienda.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">59:28–1:03:47</span><div><p>Mensajería con plantillas: se reenvía temario y encomienda en un clic. Historial de mensajes en la ficha. Cuándo pasar a Seguimiento: tras intentarlo un número razonable de veces; el sistema envía un enlace para agendar con la closer. <span class="a-who">Macarena</span> explica su rutina: llamar, apuntar la nota, repetir al día siguiente y luego pasar a Seguimiento.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:03:47–1:07:52</span><div><p>Colores: azul es reentrada; verde, que el lead ha escrito. Lista negra para leads que repiten sin intención, porque cada lead cuesta entre 7 y 12 €. Las llamadas agendadas pasan solas a su columna; hay 30.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:07:52–1:12:54</span><div><p><span class="a-who">David</span> pide definir el orden del día para el informe. Se acuerda: Por contactar de abajo arriba, citas del calendario, Seguimiento y Presentación de propuestas. Qué es cada etapa y cuándo descartar. En Presentación de propuestas hay correo automático a los 2 días y paso a largo plazo a los 40 días. Ejemplos de cierres que tardaron más de un mes.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:13:13–1:16:26</span><div><p>Cierre negociación: 27 leads con encomienda entregada o pendientes de pago; muchos son de máster, que casi siempre es de pago (unos 2.200 €). Tras limpiar quedarán unos 17. Venta cerrada es cuando está pagado.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:16:32–1:21:19</span><div><p>Partes del CRM que las closers no verán: contenidos y landings (Alberto), analítica, integraciones y automatizaciones. Abraham hace campañas masivas de correo en HTML bajo petición, por ejemplo Black Friday con un 5 %. Webinars: captan leads gratis (93 en uno). Mañana hay uno sobre SDD; el próximo mes, uno legal de gobernanza.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:21:35–1:25:01</span><div><p>Charo pregunta qué porcentaje de leads compra. No dan cifra: reconocen que no han hecho un cierre ni un seguimiento correctos por falta de tiempo. Un contacto puede traer uno o muchos alumnos. Ejemplo: una empresa cerró 17 de low-code (unos 800 €) porque el jefe de departamento lo quiso para todos.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:25:01–1:28:56</span><div><p>Software: AEDIA no da las herramientas; el alumno usa versiones gratuitas o paga licencias como n8n (de 4 a 20 € al mes). El curso de Microsoft tiene sentido para quien ya usa Microsoft en su empresa; existe una cuenta gratuita de un mes.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:28:56–1:33:21</span><div><p>Lectura del lead: en la ficha se ve qué curso miró. El generalista requiere preguntar sector y herramientas. Origen: formulario web (muy cualificado), Meta e Instagram, o asistentes de IA (cualificado). Para quien no sabe nada de IA, No-code 360; para quien quiere lo mínimo, el Toolkit. Abraham deja el resto para mañana y comenta que David está tomando notas para resumirlo.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:33:37–1:38:51</span><div><p>Al principio habrá mucha información; los primeros 15 días son normales. Elena pide el enlace del webinar (20 minutos de ponencia más parte técnica). Ambiente muy positivo: AEDIA confía en que el equipo arranque bien a final de año y en 2027. El lunes habrá 60–70 leads en Por contactar.</p></div></div>
+
+    <div class="a-tramo"><span class="a-t">1:38:51–1:43:17</span><div><p><span class="a-who">David</span> propone hacer un vocabulario de términos, como en otros proyectos. Abraham lo apoya porque los anglicismos de IA pesan mucho. Abraham cuenta su forma de vender: explicar, y decir que no a quien no quiere aprender. El título “sin aprender” es la formación de cumplimiento para empresas, tipo PRL de IA. Cierre: mañana se sigue con las formaciones.</p></div></div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="ft-grid"><div class="ft-brand"><a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a><p>Seleccionamos, formamos y dirigimos equipos de cierre para empresas de formación y productos digitales.</p></div>
+<div><h5>Material del equipo</h5><a href="briefing-aedia.html">Briefing ejecutivo</a><a href="informe-operativo-aedia.html">Informe operativo</a><a href="guia-llamada-aedia.html">Guía de llamada</a><a href="temarios-aedia.html">Temarios</a></div>
+<div><h5>AEDIA</h5><a href="https://aedia.es" target="_blank" rel="noopener">aedia.es</a><a href="https://aedia.es/cursos" target="_blank" rel="noopener">Catálogo</a></div>
+<div><h5>Closer Search</h5><span>Closer Search Consulting S.L.</span><span>Barcelona</span><a href="https://www.closersearch.com" target="_blank" rel="noopener">www.closersearch.com</a></div></div>
+<div class="ft-bottom">Uso interno del equipo de cierre · Confidencial · 17 de octubre de 2026 · © 2026 Closer Search</div></footer>
+</main>
+{'datos': ('datos', 'A', 'Máster en Ingeniería de Datos (Big Data)', '3.900 €', '550 horas de dedicación', ['Arquitecturas de datos, procesamiento con Python, SQL avanzado, Big Data con Spark y despliegue Cloud (AWS/Docker/Kubernetes).'], ['Convertirse en un perfil de alta demanda (Data Engineer o Cloud Architect) con salarios competitivos.'], '«Ahora mismo, al matricularte, te regalamos el curso profesional de Airflow para orquestación de datos.»', 'Titulación universitaria: el 10 % del coste de la formación, por cada una de ellas.'), 'master-ai': ('master-ai', 'B', 'Máster en Programación / AI Engineer', '2.200 €', '300 horas de dedicación', ['Desarrollo de modelos de IA, Machine Learning, Deep Learning y creación de agentes inteligentes.'], ['Dominar la ingeniería de IA de extremo a extremo, desde el código hasta el despliegue real.'], '«Como promoción actual, te regalamos el curso de preparación para la certificación oficial de Azure o de AWS (a tu elección).»', 'Titulación universitaria: el 10 % del coste de la formación, por cada una de ellas.'), 'educacion': ('educacion', 'D', 'Curso de IA para la Educación', '660 €', '120 horas de dedicación', ['Integración de modelos LLM (ChatGPT, Gemini) para personalizar el aprendizaje, creación de materiales didácticos innovadores, diseño de asistentes de IA con herramientas como NotebookLM y automatización de tareas administrativas y de evaluación.'], ['Convertirse en un referente en innovación educativa, liderar la transformación digital de centros de enseñanza y reducir drásticamente la carga de trabajo administrativo para centrarse en la docencia de calidad.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'nocode': ('nocode', 'E', 'IA Generativa Aplicada (IA & No-Code Professional Bootcamp)', '660 €', '120 horas de dedicación', ['En pocas semanas vas a dominar el «Stack de Oro» (combinación ideal, más eficiente y más rentable de herramientas): Airtable (para bases de datos), Make (para automatizaciones) y ChatGPT.', 'Aprenderás a diseñar prompts de ingeniería, a integrar Claude y Gemini según el caso de uso y a conectar todo con tus herramientas del día a día, y mucho más: no vas a estudiar IA, vas a construir con IA. Vas a salir con tus propias automatizaciones funcionando.'], ['Certificación profesional: avalada por AEDIA y universidades colaboradoras.', 'Automatización total: capacidad para diseñar procesos que funcionan solos 24/7.', 'Perfil estratégico: serás la pieza clave en cualquier pyme para escalar el marketing y las ventas con IA.', 'Proyecto real: no harás un examen, aplicarás lo aprendido en un caso práctico listo para generar ingresos desde el primer día.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'microsoft': ('microsoft', 'F', 'Bootcamp IA Microsoft', '660 €', '90 horas de dedicación', ['Vas a dominar el ecosistema completo de inteligencia artificial de Microsoft: diseñar prompts efectivos, exprimir M365 Copilot en tus herramientas del día a día (Outlook, Word, Excel, PowerPoint y Teams) y crear contenidos visuales y vídeos con Microsoft Designer y Clipchamp.', 'Y mucho más, porque no vas a estudiar IA, vas a construir con IA: saldrás con tus propios agentes personalizados creados con Agent Builder y tus automatizaciones de Power Automate funcionando sin escribir una sola línea de código.'], ['Certificación profesional: avalada por AEDIA y el ecosistema Microsoft.', 'Hiperproductividad: capacidad para multiplicar tu eficiencia diaria automatizando procesos repetitivos y delegando tareas operativas a la IA.', 'Perfil estratégico y seguro: serás la pieza clave en tu organización (con aplicación directa al Tercer Sector) para integrar la inteligencia artificial de forma segura, ética, libre de sesgos y protegiendo la privacidad.', 'Proyecto real: no harás un examen, aplicarás todo lo aprendido en un proyecto final enfocado a resolver un reto real de tu propia organización (como optimización de recursos o atención), listo para generar impacto desde el primer día.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'marketing': ('marketing', 'G', 'Marketing Digital con IA', '660 €', '120 horas de dedicación', ['SEO inteligente y posicionamiento asistido por IA, creación de contenido generativo (texto y visual), análisis predictivo de datos de cliente, automatización de campañas de marketing de extremo a extremo y un módulo especial para diseñar, lanzar y optimizar campañas publicitarias en OpenAI Ads, dominando la segmentación avanzada y la compra de espacios publicitarios dentro de entornos de IA conversacional.'], ['Maximizar el ROI de las campañas digitales tradicionales y de nueva generación, posicionarse como pionero en la gestión publicitaria sobre plataformas conversacionales (OpenAI Ads), automatizar la personalización de mensajes a escala y liderar el nuevo estándar del marketer digital.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'gobernanza': ('gobernanza', 'H', 'Especialista en Gobernanza, Ética y Compliance Legal de la IA', '840 €', '120 horas de dedicación', ['El Reglamento Europeo de IA (AI Act) en detalle, auditoría de sesgos algorítmicos, propiedad intelectual en el entrenamiento de LLMs y gestión de riesgos bajo los marcos ISO 42001 y NIST.'], ['Capacidad para liderar el cumplimiento legal de la IA en multinacionales, realizar evaluaciones de impacto en derechos fundamentales y ocupar roles estratégicos como Director de Ética de IA (Chief AI Ethics Officer).'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'lowcode': ('lowcode', 'I', 'Curso de Agentes de IA (Low-Code)', '840 €', '120 horas de dedicación', ['Arquitectura avanzada de flujos en n8n y Docker, implementación de RAG (bases de datos vectoriales), creación de sistemas multiagente orquestados y desarrollo de agentes de voz con Vapi.', 'Tecnologías que se usan: Cursor/Antigravity y Spec-Driven.'], ['Convertirse en un «ingeniero de código de pegamento» (Glue Code Engineer) capaz de automatizar procesos críticos de negocio y crear agentes autónomos que gestionan ventas (SDR), soporte y operaciones sin necesidad de programación profunda.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'desconexion': ('desconexion', 'J', 'Desconexión Digital', '120 € individual · 420 € para un grupo de 5 personas', '16 horas', ['El marco normativo español (LOPDGDD y Ley de Trabajo a Distancia), prevención de riesgos psicosociales como el tecnoestrés y el diseño de políticas internas y protocolos de desconexión efectivos.'], ['Competencias para actuar como consultor en bienestar laboral o especialista en Productividad y Salud Digital, y proteger legalmente a la empresa de sanciones de la Inspección de Trabajo (que pueden llegar hasta los 225.018 €).'], None, 'Solo titulación propia de AEDIA, verificable con blockchain.'), 'genai': ('genai', 'K', 'Programa Ejecutivo en Inteligencia Artificial (GenAI)', '630 €', '70 horas lectivas', ['Visión estratégica de la IA en los negocios, identificación de casos de uso de alto impacto, gestión de equipos técnicos, Prompt Engineering para directivos y cómo diseñar un roadmap de implementación de IA sin necesidad de programar.'], ['Capacidad para liderar la transformación digital de su empresa o departamento, criterio para evaluar inversiones en tecnología, y las herramientas necesarias para optimizar procesos operativos y reducir costes de forma real y medible.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'logistica': ('logistica', 'L', 'IA en Logística y Transporte 5.0', '660 €', '120 horas de dedicación', ['Dominará la ingesta inteligente de datos mediante LLMs para convertir albaranes, facturas y correos no estructurados en datos útiles para el ERP.', 'Implementará copilotos de gestión RAG (Generación Aumentada por Recuperación) para realizar consultas logísticas y resolver incidencias en tiempo real.', 'Se formará en el uso de visión artificial aplicada al almacén y el uso de la voz para asistir a operarios en tareas de picking.', 'Aprenderá a predecir la demanda integrando social listening y a optimizar rutas y cargas 3D mediante inteligencia artificial.', 'Desarrollará estrategias de Zero Waste (residuo cero) y liquidación inteligente de stock para reducir mermas.'], ['Un perfil de experto en la transformación digital del sector logístico.', 'Capacidad para liderar la implementación de IA generativa y predictiva, logrando una optimización real de la cadena de suministro, desde el almacén hasta la última milla.', 'Competencias para calcular y medir el ROI de las implementaciones de IA, basándose en métricas de horas ahorradas, tokens y reducción de mermas.', 'Estará capacitado para mejorar la experiencia del cliente mediante la personalización de entregas y la gestión automatizada de crisis con chatbots avanzados.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'salud': ('salud', 'M', 'Curso Superior de IA en Salud', '840 €', '120 horas de dedicación', ['El programa está diseñado para que perfiles clínicos y de gestión dominen la IA sin necesidad de ser ingenieros. Se estructura en cuatro ejes:', 'Fundamentos y modelos médicos: la diferencia entre IA simbólica, Machine Learning y Deep Learning, y análisis de modelos de vanguardia como Med-PaLM 2, Med-Gemini y o1.', 'Ingeniería de prompts clínicos: técnicas avanzadas como Zero/Few-shot y Chain-of-Thought (cadena de pensamiento) para el razonamiento diagnóstico y el diseño de instrucciones seguras que minimicen sesgos.', 'Aplicaciones asistenciales y operaciones: IA en radiología, apoyo a la decisión clínica (CDSS), telemedicina y automatización de la gestión hospitalaria o de centros (listas de espera, facturación y triaje).', 'I+D y marco ético-legal: datos sintéticos, genómica asistida y cumplimiento normativo esencial, incluyendo el AI Act de la UE, GDPR e HIPAA.'], ['Certificación especializada: título avalado por AEDIA y universidades colaboradoras, que certifica la capacidad para evaluar y desplegar soluciones de IA con rigor clínico.', 'Capacidad de implementación local: saber decidir entre soluciones en la nube o despliegues locales (con herramientas como n8n o Llama 3) para garantizar la privacidad de los datos del paciente.', 'Dominio de herramientas de productividad: agentes y herramientas como Scispace para investigación, Midjourney para educación visual y Gamma para presentaciones profesionales.', 'Proyecto integrador (TFM): proyecto final tutorizado que resuelve un reto real de su entorno laboral, validado con métricas clínicas y presentado mediante un pitch de negocio o de implementación hospitalaria o de clínica.'], None, 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'competencias': ('competencias', 'Ñ', 'Curso de Formación en IA Generativa y Gobernanzas Digitales / Operativa en IA', '90 €', '16 h en el título del script · «25 horas lectivas» en su argumento de venta', ['Comprenderás el funcionamiento de los LLMs y aprenderás a diseñar agentes personalizados como Custom GPTs, Gems y Copilot Agents.', 'Te formarás en la auditoría de resultados utilizando el método R.A.V. para detectar alucinaciones y sesgos algorítmicos.', 'Aprenderás a proteger los datos sensibles cumpliendo con el RGPD y aplicando protocolos prácticos de limpieza y anonimización de datos (PII cleaning).', 'Integrarás protocolos de supervisión humana (Human-in-the-Loop) con el checklist P.O.R.V.', 'Conocerás a fondo el marco legal del nuevo Reglamento Europeo de IA (AI Act UE 2024/1689).'], ['Pasarás de ser un usuario básico de IA a un profesional responsable que garantiza el cumplimiento normativo.', 'Obtendrás un certificado nominativo que acredita el cumplimiento del artículo 4 del Reglamento UE 2024/1689.', 'Desarrollarás la capacidad de prevenir fugas de información (Data Leakage) corporativa y asumirás la autoría profesional de los textos generados.'], 'Argumento clave para empresas: «Este programa de 25 horas lectivas se realiza en modalidad 100 % online y a ritmo flexible.» «Para empresas, este curso es 100 % bonificable a través de FUNDAE.» «Al matricular a tu equipo, la empresa cumple de forma directa con la obligación de alfabetización del personal exigida por el nuevo AI Act europeo, protegiéndose a nivel documental y normativo.»', 'Tasa de titulación universitaria: 25 € por cada una de ellas. Certificado nominativo AEDIA conforme al art. 4 del Reglamento UE IA 2024/1689.'), 'ciber': ('ciber', 'O', 'Bootcamp en Ingeniería de Defensa, Automatización y Ciberseguridad con IA', '1.190 €', '160 horas aprox.', ['Dominará la detección de malware polimórfico y la ingeniería social avanzada con LLMs.', 'Aprenderá a construir arquitecturas SOAR (respuesta a incidentes) autónomas con n8n, realizar livecoding forense con Cursor IDE y blindar aplicaciones de IA corporativas aplicando el OWASP Top 10 para LLMs.', 'Además, se formará en DevSecOps, control de fraude y cumplimiento normativo (EU AI Act) para gestionar el «Shadow AI».'], ['Pasar del triaje reactivo a la defensa proactiva autónoma. Se convertirá en un perfil altamente especializado (Arquitecto de Seguridad, Analista SOC o DevSecOps) capaz de diseñar sistemas de detección resilientes y orquestar la seguridad de la empresa frente a atacantes invisibles.'], 'Argumento para empresas: «Este bootcamp intensivo cuenta con 54 lecciones y 18 laboratorios prácticos en vivo. Además, si lo tramitamos para su empresa, el programa es 100 % bonificable por FUNDAE, lo que les permite blindar su infraestructura corporativa a coste cero.»', 'Tasa de titulación universitaria: 120 € por cada una de ellas.'), 'openai': ('openai', 'P', 'Microcredencial en OpenAI Ads', '210 € (una oportunidad de examen incluida; el resto, 49 € cada una)', '16 horas de dedicación', ['Dominará el uso de ChatGPT y la API de OpenAI para la generación masiva de copys publicitarios persuasivos, creación de variaciones de anuncios A/B a escala y segmentación predictiva de audiencias.', 'Aprenderá a analizar el rendimiento de las campañas (ROAS/CTR) en tiempo real utilizando agentes GPT personalizados y a automatizar flujos de trabajo en plataformas como Meta Ads y Google Ads.'], ['Convertirse en Media Buyer o Especialista en Performance Marketing impulsado por IA. Desarrollará la capacidad de automatizar el trabajo manual y creativo de las campañas, reduciendo drásticamente los costes de adquisición (CPA) y escalando la publicidad de cualquier empresa de forma hiperpersonalizada.'], '«Al ser un programa enfocado en microcredenciales, al superar el curso obtendrás una insignia digital oficial expedida en blockchain y compatible con Europass. Además, esta credencial es acumulable: si en el futuro decides seguir formándote, te servirá como eslabón para obtener el título de Experto Universitario.»', 'Tasa de titulación universitaria: 25 € por cada una de ellas.'), 'sdd': ('sdd', 'Q', 'Certificación Spec-Driven Development (SDD)', '210 € (una oportunidad de certificación incluida; el resto, 49 € cada una)', '25 horas', ['Dominará el método que ha sustituido al «Vibe Coding». Aprenderá a crear instrucciones exactas para programar con agentes de IA (como Cursor, Claude Code o Windsurf) basadas en la metodología estándar de la industria, el Spec-Driven.', 'Aprenderá a implementar gobernanza de agentes con reglas para garantizar que la IA respete la seguridad y la arquitectura del sistema.', 'Es un método universal, independiente del lenguaje de programación (Python, Java, Go, TypeScript…).', 'No solo usará OpenSpec: aprenderá más metodologías de trabajo, como BMAD, un estándar de desarrollo con multiagentes para grandes corporaciones. Con unas 4 horas de videoclases prácticas y explicativas.'], ['Acreditará que es capaz de dirigir agentes de IA con un estándar industrial verificable, no solo usar Copilot como apoyo.', 'Al superar el curso obtiene la titulación de AEDIA y, al aprobar el examen de certificación, además una credencial verificable en blockchain, compatible con Europass.', 'Según AEDIA, es la skill que más empleabilidad está consiguiendo y la piden la mayor parte de empresas en sus ofertas de empleo.'], '«Esta formación incluye todo el temario y masterclass grabadas que puedes ver a tu ritmo sin parar tu sprint de trabajo. Las tasas del examen de certificación ya están incluidas en los 210 € (con una oportunidad de certificación incluida y el resto a 49 € cada una); la titulación la obtienes solo por cursarlo y entregar el trabajo final. Además, para empresas, este programa es 100 % bonificable por FUNDAE, ideal para implantar un estándar común en todo tu equipo de desarrollo.»', 'Tasa de titulación universitaria: 25 € por cada una de ellas.'), 'toolkit': ('toolkit', 'R', 'Executive AI Toolkit: Estrategia y Productividad', '210 € particulares · 140 € en grupos a partir de 5', '18 horas', ['A adoptar la «Mentalidad IA», delegando el lienzo en blanco para centrarse en el 20 % del trabajo que aporta verdadero valor estratégico.', 'A dominar la ingeniería de prompts con el Framework C.T.R.F. (Contexto, Tarea, Restricciones, Formato) y técnicas antialucinaciones sin conocimientos técnicos.', 'A aplicar usos prácticos y trucos (hacks) de productividad de los cuatro grandes ecosistemas de IA: ChatGPT, Claude, Gemini y Microsoft Copilot.', 'A ejecutar análisis de datos y generar gráficos visuales en segundos sin conocer fórmulas complejas de Excel.', 'A construir y orquestar asistentes propios (Custom GPTs y Gems) con la base documental de la empresa para estandarizar procesos y mantener el tono de marca.', 'A alinear el uso de la IA con el compliance de la empresa, dominando protocolos de anonimización de datos y el funcionamiento de las licencias Enterprise Data Protection.'], ['Iniciarse en la IA generativa desde cero para tomar decisiones informadas sin tener que convertirse en ingeniero ni programador.', 'Disparar la productividad personal al automatizar drásticamente el «trabajo en la sombra» de su rutina diaria: actas, correos, lectura de informes densos y presentaciones ejecutivas.', 'Trabajar con información segura, protegiendo la privacidad y sabiendo exactamente qué datos corporativos pueden o no subirse a la IA.', 'Terminar con entregables reutilizables reales para su puesto de trabajo (como asistentes de estilo corporativo o un protocolo personal de privacidad).', 'Doble certificación: título universitario de Formación Permanente otorgado por la UEMC y credencial digital «Executive AI Mastery» verificable en blockchain por AEDIA.'], None, 'Solo titulación propia de AEDIA (según el script; ver la doble certificación indicada arriba).')}
+<style>#cs-home{position:fixed;left:16px;bottom:16px;z-index:50;background:#060606;color:#C9A84C;border:1px solid #8E763A;border-radius:6px;padding:9px 14px;font:600 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.5)}#cs-home:hover{background:#C9A84C;color:#060606}@media print{#cs-home{display:none}}</style><a id="cs-home" href="index.html">← Portada</a>
+</body>
+</html>
