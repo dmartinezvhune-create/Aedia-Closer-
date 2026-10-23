@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#060606">
+<meta name="description" content="Material interno del equipo de cierre para la cuenta de AEDIA.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de cierre AEDIA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 6px 48px;
+  }
+  .brand-client{
+    font-size:.72rem; margin:0 0 24px 48px; color:var(--ink-faint);
+  }
+  .brand-client strong{color:var(--gold-soft);}
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar a.sourced{color:var(--ink); font-weight:700;}
+  nav.sidebar a.sourced:hover{color:var(--gold-soft);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.72rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+
+  .calc-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--line);}
+  .calc-row label{color:var(--ink); font-size:.92rem;}
+  .calc-row input{width:130px; background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold-soft); font-family:'DM Sans',sans-serif; font-size:1rem; padding:8px 10px; border-radius:4px; text-align:right;}
+  .calc-row input:focus{outline:none; border-color:var(--gold);}
+  @media (max-width:700px){
+    table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    td.label{white-space:normal;}
+    .calc-row input{width:100px;}
+  }
+  .pend{display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:2px; color:#D9B26A; border:1px dashed var(--gold-dim); margin-left:8px; vertical-align:middle; font-family:'Cinzel',serif;}
+  .calc-sep{margin:22px 0 4px; font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-dim);}
+  details.acc .acc-body ul{margin:.5em 0; padding-left:18px;}
+  details.acc .acc-body li{margin-bottom:6px;}
+  .pitch-frame{margin-top:18px; border:1px solid var(--gold-dim); border-radius:var(--radius); overflow:hidden; background:#000;}
+  .pitch-frame iframe{display:block; width:100%; height:760px; border:0;}
+  button.pitch-open{background:var(--gold); color:#060606; border:none; font-family:'Cinzel',serif; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:12px 20px; border-radius:4px; cursor:pointer;}
+  button.pitch-open:hover{background:var(--gold-soft);}
+  @media (max-width:700px){ .pitch-frame iframe{height:600px;} }
+  .pay-card span.link{display:block; font-size:.72rem; color:var(--ink-faint); background:#000; padding:8px 10px; border-radius:4px; border:1px dashed var(--line);}
+
+  /* Texto justificado sin distorsión: sin guiones, sin estirar líneas cortas */
+  p, li, .say, .callout, .card p, .phase-body p, .acc-body p, tbody td, .hero .lede, .subnote{
+    text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none;
+    text-align-last:left;
+  }
+  td.label, .amount, .plan, .pill, .section-tag, h1, h2, h3, h4, .checklist li, .topbar, .brand-client, .brand-tagline, nav.sidebar a, .pay-card .subnote, .hero .promise{
+    text-align:left;
+  }
+
+  /* ===== Diseño web Closer Search ===== */
+  body{padding-top:76px;}
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,6,6,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-inner{max-width:1180px; margin:0 auto; padding:0 28px; height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .logo{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo svg{width:38px; height:38px; flex:0 0 auto;}
+  .logo-text{display:flex; flex-direction:column; line-height:1.15;}
+  .logo .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:1.02rem; color:#fff; letter-spacing:.08em;}
+  .logo .brand-name .search{color:var(--gold);}
+  .logo-sub{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.86rem; color:var(--ink-faint);}
+  .site-nav{display:flex; align-items:center; gap:6px;}
+  .site-nav > a, .dd-btn{color:var(--ink-dim); text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; padding:10px 14px; background:none; border:none; cursor:pointer; border-radius:4px;}
+  .site-nav > a:hover, .dd-btn:hover, .dd:focus-within .dd-btn{color:var(--gold-soft);}
+  .caret{font-size:.7rem; opacity:.7;}
+  .dd{position:relative;}
+  .dd-menu{position:absolute; top:100%; left:0; min-width:270px; background:var(--void-soft); border:1px solid var(--line); border-top:2px solid var(--gold); border-radius:0 0 6px 6px; padding:8px 0; display:none; box-shadow:0 18px 40px rgba(0,0,0,.5);}
+  .dd:hover .dd-menu, .dd:focus-within .dd-menu{display:block;}
+  .dd-menu a{display:block; padding:9px 18px; color:var(--ink-dim); text-decoration:none; font-size:.88rem;}
+  .dd-menu a:hover{color:var(--gold-soft); background:var(--gold-glow, rgba(201,168,76,.08));}
+  .site-nav > a.nav-cta{background:var(--gold); color:#060606; font-weight:600; margin-left:8px; padding:11px 20px;}
+  .site-nav > a.nav-cta:hover{background:var(--gold-soft); color:#060606;}
+  .menu-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; width:44px; height:44px; cursor:pointer; flex-direction:column; justify-content:center; align-items:center; gap:5px;}
+  .menu-toggle span{display:block; width:20px; height:2px; background:var(--gold);}
+  main{max-width:none;}
+  section{scroll-margin-top:90px;}
+  .web-hero{padding:96px max(28px, calc((100% - 1124px) / 2)) 70px; max-width:none; margin:0; border-bottom:1px solid var(--line);
+    background:radial-gradient(ellipse at 85% 0%, rgba(201,168,76,.13), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(201,168,76,.05), transparent 50%);}
+  .web-hero h1{font-size:3.6rem; line-height:1.08; max-width:900px; letter-spacing:-.01em;}
+  .web-hero h1 em{font-style:italic; color:var(--gold);}
+  .web-hero .lede{max-width:720px; font-size:1.12rem;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+  .btn-primary, .btn-secondary{display:inline-block; text-decoration:none; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.95rem; padding:15px 26px; border-radius:4px; transition:.15s;}
+  .btn-primary{background:var(--gold); color:#060606;}
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-secondary{border:1px solid var(--gold-dim); color:var(--gold-soft);}
+  .btn-secondary:hover{border-color:var(--gold); color:var(--gold);}
+  .hero-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:46px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; max-width:900px;}
+  .hero-stats > div{background:var(--void-soft); padding:20px 18px;}
+  .hero-stats .n{display:block; font-family:'Cormorant Garamond',serif; font-weight:700; font-size:2rem; color:var(--gold); line-height:1;}
+  .hero-stats .l{display:block; font-size:.78rem; color:var(--ink-dim); margin-top:8px; line-height:1.35;}
+  .hero-meta{margin-top:26px; font-size:.8rem; color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:8px;}
+  .hero-meta strong{color:var(--gold); font-weight:600;}
+  .web-hero .promise{max-width:900px;}
+  .site-footer{max-width:none; margin-top:40px; padding:56px 28px 30px; background:var(--void-soft); border-top:1px solid var(--line); display:block; text-align:left;}
+  .ft-grid{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:34px;}
+  .ft-grid h5{font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:0 0 12px;}
+  .ft-grid a, .ft-grid span{display:block; color:var(--ink-dim); text-decoration:none; font-size:.88rem; margin-bottom:8px;}
+  .ft-grid a:hover{color:var(--gold-soft);}
+  .ft-brand p{font-size:.88rem; color:var(--ink-faint); margin-top:14px; max-width:300px; text-align:left;}
+  .ft-brand .logo span{display:inline; margin:0;}
+  .ft-brand .logo .logo-text{display:flex;}
+  .ft-bottom{max-width:1180px; margin:34px auto 0; padding-top:20px; border-top:1px solid var(--line); font-size:.78rem; color:var(--ink-faint);}
+  .site-footer svg{width:38px; height:38px; opacity:1;}
+  @media (max-width:980px){
+    .menu-toggle{display:flex;}
+    header.site{backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--void);}
+    .site-nav{display:none; position:fixed; top:76px; left:0; right:0; height:calc(100vh - 76px); background:var(--void); flex-direction:column; align-items:stretch; gap:0; padding:12px 22px 40px; overflow-y:auto; border-top:1px solid var(--line);}
+    body.menu-open .site-nav{display:flex;}
+    .site-nav > a, .dd-btn{padding:14px 4px; font-size:1rem; text-align:left; border-bottom:1px solid var(--line); border-radius:0;}
+    .dd-btn{width:100%;}
+    .dd-menu{display:block; position:static; border:none; box-shadow:none; background:none; padding:0 0 8px 12px; min-width:0;}
+    .dd-menu a{padding:10px 4px;}
+    .site-nav > a.nav-cta{margin:18px 0 0; text-align:center; border-bottom:none;}
+    .web-hero{padding:56px 22px 46px;}
+    .site-inner{padding:0 18px;}
+    .web-hero h1{font-size:2.3rem;}
+    .hero-stats{grid-template-columns:1fr 1fr;}
+    .ft-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .web-hero h1{font-size:2rem;}
+    .logo-sub{display:none;}
+    .ft-grid{grid-template-columns:1fr;}
+    .btn-primary,.btn-secondary{width:100%; text-align:center;}
+  }
+
+  .calc-sel{max-width:60%;background:var(--void-card);border:1px solid var(--gold-dim);color:var(--gold-soft);font-family:'DM Sans',sans-serif;font-size:.92rem;padding:8px 10px;border-radius:4px}
+  .calc-row input{width:150px}
+  details.acc summary .sum-meta{display:flex;align-items:center;gap:10px;font-weight:500;color:var(--ink-dim);font-size:.85rem;margin-left:auto;margin-right:14px;white-space:nowrap}
+  details.acc summary{gap:10px}
+  .pill-a{background:var(--gold);color:#060606;border-color:var(--gold)}
+  .pill-b{background:rgba(201,168,76,.1);color:var(--gold)}
+  .pill-c{background:transparent;color:var(--ink-faint);border-color:var(--line)}
+  td .pill{margin:0}
+  td.label.wrap{white-space:normal}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  details.acc table td.label{width:30%}
+  details.acc table{margin-top:4px}
+  .checklist li span, .pay-card .subnote, .hero .promise, .promise, .ft-brand p, .box li, .card li{text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none; text-align-last:left}
+  @media (max-width:700px){ .calc-row{flex-wrap:wrap} .calc-sel{max-width:100%;width:100%} details.acc summary .sum-meta{display:none} }
+
+
+
+  .card ul{margin:8px 0 0;padding-left:18px} .card ul li{margin-bottom:6px}
+  .checklist li{display:flex;gap:12px;align-items:flex-start}
+  .checklist li span:last-child{text-align:justify;text-align-last:left}
+  .portal{align-items:stretch} .portal-card{display:flex;flex-direction:column;padding:30px}
+  .portal-card h2{margin-top:6px} .portal-card ul{margin:10px 0 24px;padding-left:18px;flex:1} .portal-card li{margin-bottom:8px}
+  .portal-card .btn-primary{align-self:flex-start} .portal-wide{margin-top:16px}
+  @media (max-width:700px){ .portal-card .btn-primary{align-self:stretch} }
+
+</style>
+<style id="cs-fix">
+p,li,td,th,.say,.callout,.card p,.card li,.phase-body p,.acc-body p,.hero .lede,.subnote,.box li,.checklist li span,.pay-card .subnote,.promise,.hero .promise,.ft-brand p,.a-note,.a-risk p{text-align:left!important;text-align-last:auto!important;word-spacing:normal!important;hyphens:none!important;-webkit-hyphens:none!important}
+.site-nav a,.dd-btn{white-space:nowrap}
+.dd-menu{max-height:70vh;overflow:auto}
+.pill{font-size:11.5px}.pend{font-size:11.5px}
+.phase-body h4 a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(201,168,76,.5)}
+@media (max-width:900px){#cs-home{display:none!important}}
+@media (max-width:700px){
+ table.tcards thead{display:none}
+ table.tcards,table.tcards tbody,table.tcards tr,table.tcards td{display:block;width:100%!important}
+ table.tcards tr{border:1px solid #2a2620;border-radius:8px;margin:0 0 10px;padding:8px 12px}
+ table.tcards td{border:0!important;padding:4px 0!important}
+ table.tcards td::before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#C9A84C;margin-bottom:2px}
+ table.tcards td:first-child::before{display:none}
+ table.tcards td:first-child{font-weight:600;color:#fff}
+}
+</style>
+</head>
+<body>
+<header class="site" id="siteHeader"><div class="site-inner"><a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a><button class="menu-toggle" type="button" aria-label="Abrir el menú" id="mt"><span></span><span></span><span></span></button><nav class="site-nav" id="sn"><a href="index.html">Inicio</a><div class="dd"><button class="dd-btn" type="button">Aprender <span class="caret">▾</span></button><div class="dd-menu"><a href="briefing-aedia.html">1 · Briefing</a><a href="onboarding-closers-aedia.html">2 · Onboarding</a><a href="informe-operativo-aedia.html">3 · Informe operativo</a><a href="playbook-aedia.html">4 · Playbook</a><a href="temarios-aedia.html">6 · Temarios</a></div></div><div class="dd"><button class="dd-btn" type="button">Consultar <span class="caret">▾</span></button><div class="dd-menu"><a href="index.html#dudas">Dudas rápidas</a><a href="plan-cierre-aedia.html#rescate">Rescate de la cartera</a><a href="plan-cierre-aedia.html#decide">Hablar con RR. HH.</a><a href="vocabulario-aedia.html">Vocabulario</a><a href="informe-operativo-aedia.html#oferta">Programas y precios</a><a href="informe-operativo-aedia.html#fundae">FUNDAE</a><a href="informe-operativo-aedia.html#pagos">Pagos y matrícula</a><a href="informe-operativo-aedia.html#kpis">Etapas del CRM</a><a href="informe-operativo-aedia.html#objeciones">Objeciones</a><a href="briefing-aedia.html#escalado">A quién acudir</a></div></div><div class="dd"><button class="dd-btn" type="button">En esta página <span class="caret">▾</span></button><div class="dd-menu"><a href="#rescate">Rescate de la cartera</a><a href="#decide">Hablar con RR. HH., gerencia o la gestoría</a><a href="#alumnos">Más alumnos por empresa</a><a href="#cierre-anio">Campaña de cierre de año FUNDAE</a><a href="#30dias">Tus primeros 30 días</a><a href="#numeros">Mis números</a><a href="#calidad">Calidad de llamada</a><a href="#objeciones">Objeciones de empresa</a><a href="#roleplays">Role plays</a><a href="#seguimiento-aedia">La reunión de seguimiento</a></div></div><a class="nav-cta" href="guia-llamada-aedia.html">Guía de llamada</a></nav></div></header>
+<main id="top">
+<div class="hero web-hero">
+  <div class="eyebrow"><svg viewBox="0 0 100 100" fill="none" width="16" height="16"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="6" fill="none"/></svg>Plan de cierre · AEDIA</div>
+  <h1>Cómo se gana la venta en AEDIA. <em>Más allá de acertar el curso.</em></h1>
+  <p class="lede">La guía te ayuda a acertar el curso. Aquí está lo que cierra: rescatar la cartera, llegar a quien firma la encomienda, sumar alumnos por empresa, la campaña de cierre de año, tu plan de 30 días, tus números, las objeciones de empresa y los role plays.</p>
+  <div class="hero-ctas"><a class="btn-primary" href="#rescate">Rescate de la cartera</a><a class="btn-secondary" href="#decide">Hablar con quien decide</a><a class="btn-secondary" href="#roleplays">Role plays</a></div>
+  <div class="hero-meta"><span><strong>Uso interno</strong> del equipo de cierre</span><span class="dot">·</span><span>Actualizado el 23/10/2026</span></div>
+</div>
+<section id="rescate">
+  <div class="section-tag">01 · Lo primero</div>
+  <h2>Rescate de la cartera</h2>
+<p>Ya tenéis leads con dinero cerca: unos 17 en Cierre negociación (encomienda entregada o pago pendiente) y unos 90 cada una en Presentación de propuesta, que ya tienen temario y encomienda. Es la venta más rápida de las primeras semanas.</p><div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Cada mañana, primero Cierre negociación</h4><p>Pagos o documentos pendientes: confirma con Macarena qué falta y llama para cerrarlo. Es lo más cerca del cobro.</p></div></div><div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Ordena Presentación de propuesta</h4><p>Primero empresas, luego particulares. Dentro de cada grupo: azul (reentrada) o verde (ha escrito), después scoring 2–3 y lo más reciente antes que lo antiguo.</p></div></div><div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Cadencia de rescate</h4><p>Día 0: llamada. Día 1: WhatsApp (mensaje «Con temario y encomienda enviados» de la guía). Día 4: segunda llamada. Día 10: mensaje final. El CRM ya manda su correo y mueve el lead a los 40 días.</p></div></div><div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Cada lead sale con una de tres cosas</h4><p>Encomienda reenviada con fecha para devolverla · contacto de RR. HH. o de quien decide · descarte con motivo anotado.</p></div></div><div class="callout"><strong>Para empezar la llamada de rescate:</strong> «Hola, ¿[nombre]? Soy [tu nombre], de AEDIA. Te llamo por el temario de [curso] y la encomienda que te enviamos. ¿Pudiste verlo con tu empresa?» En la guía: tipo de llamada «Seguimiento».</div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="decide">
+  <div class="section-tag">02 · Quien firma</div>
+  <h2>Hablar con RR. HH., gerencia o la gestoría</h2>
+<p>La encomienda la firma la empresa, no el empleado. Cuando llega, el 95 % acaba en venta. Por eso el trabajo no termina con el empleado convencido: hay que llegar a quien decide.</p><h3>1 · Pide el puente al empleado</h3><p class="say"><strong>Dile:</strong> «¿Te parece que llame yo a RR. HH. y se lo explico en cinco minutos? Así no te toca a ti. ¿Con quién hablo y cuándo le viene bien?»</p><h3>2 · La llamada a RR. HH. o gerencia</h3><p class="say"><strong>Apertura:</strong> «Hola, soy [tu nombre], de AEDIA. [Nombre del empleado] nos ha pedido información sobre una formación en IA bonificable por FUNDAE y me ha pedido que te lo explique.»</p><ul><li><strong>Tres preguntas:</strong> ¿cuántas personas usan IA en la empresa?, ¿habéis usado ya el crédito FUNDAE de este año?, ¿quién lo gestiona: vosotros o la gestoría?</li><li><strong>El argumento:</strong> «La encomienda no tiene ningún coste: solo nos permite consultar vuestro crédito y deciros cómo queda.»</li><li><strong>Si usan IA varias personas:</strong> la obligación de alfabetización en IA del art. 4 del Reglamento europeo, con cautela: «ayuda a la empresa a formar a quien usa IA».</li><li><strong>Cierre:</strong> envío de la encomienda y fecha para revisarla.</li></ul><h3>3 · El correo para reenviar</h3><p>Si el empleado prefiere hacerlo él, que reenvíe tal cual el mensaje «Para que lo reenvíe a RR. HH.» de la guía (fase 8 · Mensajes).</p><h3>4 · Si lo lleva la gestoría</h3><p>Pide el contacto de la gestoría y pon a Macarena en copia para que le envíe los datos de la formación que necesita para darla de alta.</p>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="alumnos">
+  <div class="section-tag">03 · Más venta por empresa</div>
+  <h2>Más alumnos por empresa</h2>
+<p>Lo normal es que un lead acabe en varias matrículas: un empleado informado arrastra a otros y esas ventas son tuyas. Hay casos reales: una empresa con 12 empleados formó a 10, y otra cerró 17 de Low-Code porque el jefe de departamento lo quiso para todos.</p><h3>Preguntas de expansión</h3><ul><li>«¿Cuántas personas de tu departamento usan ya ChatGPT o Copilot?»</li><li>«¿Hay alguien más a quien le vendría bien?»</li><li>«¿Quién decide la formación del equipo?»</li></ul><h3>Oferta en dos capas</h3><table><thead><tr><th>Capa</th><th>Para quién</th><th>Curso</th></tr></thead><tbody><tr><td class="label wrap">Base</td><td>Toda la plantilla que usa IA</td><td>Competencias digitales · 90 € por empleado, grupos desde 5</td></tr><tr><td class="label wrap">Especialización</td><td>Quien va a implementar o tiene sector</td><td>El curso por perfil: Low-Code, Microsoft, la vertical, Líder…</td></tr></tbody></table><h3>La llamada de vuelta</h3><p>Cuando Macarena confirme el crédito, vuelve a llamar: «Ya tenemos vuestro crédito. ¿Lo aprovechamos para más personas del equipo?». Apunta en las notas del CRM las plazas potenciales que te digan.</p>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="cierre-anio">
+  <div class="section-tag">04 · Noviembre y diciembre</div>
+  <h2>Campaña de cierre de año FUNDAE</h2>
+<p>A final de año las empresas descubren crédito sin gastar y quieren usarlo: es uno de los mejores momentos (AEDIA vende más en junio–septiembre y diciembre).</p><div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Lista de empresas</h4><p>Empresas en Presentación de propuesta y empresas de la base, ordenadas por interés y por número de personas.</p></div></div><div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Llamada a quien decide</h4><p>Con el guion de RR. HH.: crédito de este año, cuántas personas y encomienda.</p></div></div><div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Fecha límite interna</h4><p>Para que dé tiempo a comunicar el inicio a FUNDAE, la encomienda tiene que llegar antes de una fecha que fija Macarena. <span class="pend">a fijar con AEDIA</span></p></div></div><div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Mensaje masivo</h4><p>Abraham hace campañas de correo bajo petición: pídele una de cierre de año para las empresas de la base.</p></div></div><div class="callout"><strong>El argumento que salva diciembre:</strong> según AEDIA, la formación se puede hacer una parte este año y otra el siguiente. Si a la empresa no le da tiempo o no gasta todo, se puede repartir. No digas que «el crédito se pierde» sin más: hay empresas que guardan crédito del año anterior.</div><p class="say"><strong>Dile:</strong> «Muchas empresas aprovechan ahora el crédito de este año. Con la encomienda lo comprobamos sin coste y, si no os da tiempo a todo, se puede repartir entre este año y el siguiente.»</p>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="30dias">
+  <div class="section-tag">05 · Tu arranque</div>
+  <h2>Tus primeros 30 días</h2>
+<table><thead><tr><th>Cuándo</th><th>Foco</th><th>Al final debes tener</th></tr></thead><tbody><tr><td class="label wrap">Semana 1</td><td>Leads nuevos del día y rescate de Presentación de propuesta, con la guía y el speech de Macarena. Practica los casos de la guía.</td><td>Toda la cartera ordenada y la primera vuelta de llamadas empezada.</td></tr><tr><td class="label wrap">Semana 2</td><td>Rescate completo y primeras llamadas a RR. HH.</td><td>Cada lead de la cartera tocado al menos una vez.</td></tr><tr><td class="label wrap">Semanas 3–4</td><td>Multi-matrícula y campaña de cierre de año.</td><td>Empresas con crédito identificadas y encomiendas en marcha.</td></tr></tbody></table><h3>Hitos</h3><ul><li><strong>Día 5:</strong> repasar las primeras llamadas y ajustar la guía.</li><li><strong>Día 15:</strong> primeros números reales del CRM: fijar objetivos con AEDIA.</li><li><strong>Día 30:</strong> balance y plan de diciembre.</li></ul><h3>Cada una en su punto fuerte</h3><ul><li><strong>Charo:</strong> leads nuevos y rescate de Presentación de propuesta, con el guion literal. Escucha llamadas de Elena en la hora en común.</li><li><strong>Elena:</strong> Cierre negociación, empresas grandes y llamadas a RR. HH.</li></ul><h3>Tu turno, por bloques</h3><table><thead><tr><th>Bloque</th><th>Qué haces</th></tr></thead><tbody><tr><td class="label wrap">Inicio (10 min)</td><td>Cierre negociación y agenda del día en el CRM.</td></tr><tr><td class="label wrap">Bloque de llamadas</td><td>Por contactar de abajo arriba y llamadas agendadas; entre llamada y llamada, más Por contactar.</td></tr><tr><td class="label wrap">Hora en común (14:00–15:00)</td><td>Traspasos, lo que se ha atascado y una llamada comentada entre las dos.</td></tr><tr><td class="label wrap">Cierre (15 min)</td><td>CRM al día, fichas guardadas en Drive y mensajes de la secuencia enviados.</td></tr></tbody></table><div class="callout"><strong>Objetivos de actividad</strong> (llamadas al día, encomiendas a la semana): <span class="pend">a fijar con AEDIA</span> en la reunión del día 15, con los datos reales del CRM. Hasta entonces, la referencia es que ningún lead se quede sin siguiente paso.</div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="numeros">
+  <div class="section-tag">06 · Medirte</div>
+  <h2>Mis números</h2>
+<p>Lo que se mide cada semana. La guía te ayuda: registra cada llamada en el contador y guarda la ficha en tu carpeta de Drive.</p><table><thead><tr><th>Métrica</th><th>Qué cuenta</th><th>Objetivo</th></tr></thead><tbody><tr><td class="label wrap">Contactados</td><td>Leads con los que has hablado</td><td><span class="pend">a fijar con AEDIA</span></td></tr><tr><td class="label wrap">Conversaciones completas</td><td>Llamadas con diagnóstico hecho</td><td><span class="pend">a fijar con AEDIA</span></td></tr><tr><td class="label wrap">Encomiendas enviadas</td><td>Temario y encomienda enviados</td><td><span class="pend">a fijar con AEDIA</span></td></tr><tr><td class="label wrap">Encomiendas devueltas</td><td>Empresas que la han firmado</td><td><span class="pend">a fijar con AEDIA</span></td></tr><tr><td class="label wrap">Ventas</td><td>Matrículas pagadas o bonificadas</td><td><span class="pend">a fijar con AEDIA</span></td></tr><tr><td class="label wrap">Alumnos por empresa</td><td>Media de matrículas por empresa cerrada</td><td><span class="pend">a fijar con AEDIA</span></td></tr></tbody></table><p class="subnote">Lo que AEDIA ya sabe: con la encomienda entregada, se cierra en torno al 95 %. Por eso «encomiendas devueltas» es la métrica que más predice tus ventas.</p>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="calidad">
+  <div class="section-tag">07 · Autoevaluación</div>
+  <h2>Calidad de llamada</h2>
+<p>Marca después de una llamada. Hazlo con dos llamadas al día y comentad una por semana en la hora en común. No se guarda nada.</p><div class="card" id="qcheck"><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Leí las notas del CRM antes de llamar</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Hice las preguntas del diagnóstico</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Reorienté si le encajaba otro curso</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Pregunté por más personas de la empresa</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Conseguí el contacto de quien decide</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Pedí la encomienda o el pago</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Fijé día y hora del siguiente paso</span></label><label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer"><input type="checkbox" style="margin-top:5px"> <span>Dejé la nota y la etapa en el CRM</span></label><p style="margin-top:10px"><strong id="qscore">0 de 8</strong></p><button type="button" class="btn-secondary" id="qreset">Empezar otra</button></div>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="objeciones">
+  <div class="section-tag">08 · Las que faltaban</div>
+  <h2>Objeciones de empresa</h2>
+<p>Se suman a las 13 de la guía (pestaña Objeciones). Siempre: escucha, responde corto y vuelve a preguntar.</p><details class="acc"><summary><span>«Ya lo vemos en enero»</span></summary><div class="acc-body"><p class="say">«Perfecto. Te envío ahora la encomienda para que tengáis el crédito comprobado, y si os encaja, se puede repartir entre este año y el siguiente.»</p><p><strong>Re-pregunta:</strong> «¿Qué os haría falta para decidirlo?»</p></div></details><details class="acc"><summary><span>«Ya hemos gastado el crédito»</span></summary><div class="acc-body"><p class="say">«¿Todo? Muchas empresas guardan crédito del año anterior. Con la encomienda lo comprobamos sin coste, y si no hay, te cuento las opciones de pago o a plazos.»</p><p><strong>Re-pregunta:</strong> «¿Lo comprobamos con la encomienda?»</p></div></details><details class="acc"><summary><span>«Lo lleva la gestoría»</span></summary><div class="acc-body"><p class="say">«Mejor aún: les enviamos los datos que necesitan para darla de alta. ¿Me pasas su contacto?» Pon a Macarena en copia.</p><p><strong>Re-pregunta:</strong> «¿Con quién de la gestoría hablo?»</p></div></details><details class="acc"><summary><span>«Mándamelo por correo»</span></summary><div class="acc-body"><p class="say">«Claro, te lo envío ahora. Para mandarte lo que de verdad te sirve, ¿me dejas hacerte dos preguntas rápidas?» Y haz el diagnóstico.</p><p><strong>Re-pregunta:</strong> «¿A qué te dedicas?»</p></div></details><details class="acc"><summary><span>«RR. HH. no contesta»</span></summary><div class="acc-body"><p class="say">«¿Te parece que les llame yo y se lo explico en cinco minutos? Así no te toca a ti.»</p><p><strong>Re-pregunta:</strong> «¿Con quién hablo y cuándo?»</p></div></details><details class="acc"><summary><span>«Queremos algo para todos»</span></summary><div class="acc-body"><p class="say">«Para todo el equipo tenemos Competencias digitales, la formación en IA para quien la usa, a 90 € por empleado desde 5 personas. Y quien vaya a implementar puede hacer su curso por perfil.»</p><p><strong>Re-pregunta:</strong> «¿Cuántas personas serían?»</p></div></details><details class="acc"><summary><span>«Tenemos otro proveedor»</span></summary><div class="acc-body"><p class="say">«Perfecto. ¿Qué os gusta de lo que tenéis? Lo nuestro es práctico, con tutor, tareas con feedback y acceso de por vida. Si os encaja, lo comprobamos con la encomienda sin compromiso.»</p><p><strong>Re-pregunta:</strong> «¿Qué echáis en falta?»</p></div></details>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="roleplays">
+  <div class="section-tag">09 · Practicar</div>
+  <h2>Role plays</h2>
+<p>Una hace de lead con la ficha, la otra hace la llamada con la guía. Después, cambiad. Cada role play tiene una versión floja y una buena.</p><details class="acc"><summary><span>El empleado que lo tiene que consultar</span></summary><div class="acc-body"><p><strong>El lead:</strong> Administrativa de una empresa de 20 personas. Le gusta el curso, pero «lo tiene que ver con RR. HH.».</p><p><strong>Objetivo:</strong> Encomienda enviada y contacto de RR. HH. con fecha.</p><p><strong>Versión floja:</strong> Le envía el temario y cuelga con «ya me dices».</p><p><strong>Versión buena:</strong> Acepta, recuerda que la encomienda no tiene coste, ofrece llamar a RR. HH. y fija día y hora.</p></div></details><details class="acc"><summary><span>El de RR. HH. con prisa</span></summary><div class="acc-body"><p><strong>El lead:</strong> Responsable de RR. HH. que contesta entre reuniones: «mándamelo por correo».</p><p><strong>Objetivo:</strong> Saber cuántas personas usan IA y enviar la encomienda.</p><p><strong>Versión floja:</strong> Manda un correo genérico y no vuelve a llamar.</p><p><strong>Versión buena:</strong> Pide dos minutos, hace las tres preguntas de RR. HH. y envía la encomienda con fecha para revisarla.</p></div></details><details class="acc"><summary><span>El que pidió otro curso</span></summary><div class="acc-body"><p><strong>El lead:</strong> Pidió Low-Code y es jefe de logística, con poco tiempo.</p><p><strong>Objetivo:</strong> Reorientar a la vertical de Logística sin que sienta que le cambian el producto.</p><p><strong>Versión floja:</strong> Le vende Low-Code sin preguntar.</p><p><strong>Versión buena:</strong> Hace las preguntas, usa la frase puente y le cuenta los dos para que elija.</p></div></details><details class="acc"><summary><span>El autónomo sin empleados</span></summary><div class="acc-body"><p><strong>El lead:</strong> Diseñadora autónoma que quiere «la formación gratis».</p><p><strong>Objetivo:</strong> Ser clara con que no bonifica y ofrecer opciones.</p><p><strong>Versión floja:</strong> Le deja creer que se bonifica.</p><p><strong>Versión buena:</strong> Lo dice pronto, ofrece pago o financiación y, si es por precio, el Toolkit.</p></div></details><details class="acc"><summary><span>La empresa a final de año</span></summary><div class="acc-body"><p><strong>El lead:</strong> Gerente de una pyme en diciembre: «ya lo vemos en enero».</p><p><strong>Objetivo:</strong> Encomienda enviada este año.</p><p><strong>Versión floja:</strong> Acepta enero sin más.</p><p><strong>Versión buena:</strong> Explica que se puede repartir entre este año y el siguiente y envía la encomienda para comprobar el crédito.</p></div></details>
+</section>
+<div class="seal-divider"><span class="line"></span><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="line right"></span></div>
+<section id="seguimiento-aedia">
+  <div class="section-tag">10 · Con AEDIA</div>
+  <h2>La reunión de seguimiento</h2>
+<p>Para que la reunión con AEDIA sea corta y útil, llevadla preparada:</p><ol><li>Los números de la quincena de cada una (los de «Mis números»).</li><li>Las tres objeciones que más se han repetido, con un ejemplo.</li><li>Los leads atascados, cada uno con una petición concreta a AEDIA.</li><li>Las dudas agrupadas, para no escribir a AEDIA por cada una.</li><li>Las decisiones que necesitamos de AEDIA (precios por confirmar, descuentos, plantillas).</li></ol><h3>Cuándo escalar en la propia llamada</h3><table><thead><tr><th>Caso</th><th>A quién</th><th>Qué dices mientras</th></tr></thead><tbody><tr><td class="label wrap">Ingeniería de Datos, Comités de IA, Airflow</td><td>Abraham</td><td>«Te paso con nuestro responsable técnico para que lo veáis juntos.»</td></tr><tr><td class="label wrap">Grupos grandes o in company</td><td>Macarena y Abraham</td><td>«Te preparamos un presupuesto a medida.»</td></tr><tr><td class="label wrap">Precio por confirmar o ajuste por crédito</td><td>Macarena</td><td>«Te lo confirmo por escrito.»</td></tr></tbody></table><p class="subnote">Tiempo de respuesta de Macarena y Abraham: <span class="pend">a fijar con AEDIA</span></p>
+</section>
+
+<footer class="site-footer"><div class="ft-grid"><div class="ft-brand"><a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a><p>Seleccionamos, formamos y dirigimos equipos de cierre para empresas de formación y productos digitales.</p></div>
+<div><h5>Material del equipo</h5><a href="index.html">Portada</a><a href="briefing-aedia.html">Briefing</a><a href="onboarding-closers-aedia.html">Onboarding</a><a href="informe-operativo-aedia.html">Informe operativo</a><a href="playbook-aedia.html">Playbook</a><a href="plan-cierre-aedia.html">Plan de cierre</a><a href="temarios-aedia.html">Temarios</a><a href="vocabulario-aedia.html">Vocabulario</a><a href="guia-llamada-aedia.html">Guía de llamada</a></div>
+<div><h5>AEDIA</h5><a href="https://aedia.es" target="_blank" rel="noopener">aedia.es</a><a href="https://aedia.es/cursos" target="_blank" rel="noopener">Catálogo</a></div>
+<div><h5>Closer Search</h5><span>Closer Search Consulting S.L.</span><span>Barcelona</span><a href="https://www.closersearch.com" target="_blank" rel="noopener">www.closersearch.com</a></div></div>
+<div class="ft-bottom">Uso interno del equipo de cierre · Confidencial · 23 de octubre de 2026 · © 2026 Closer Search</div></footer>
+</main>
+<script>(function(){var b=document.getElementById('qcheck');if(!b)return;var s=document.getElementById('qscore');function u(){var n=b.querySelectorAll('input:checked').length;s.textContent=n+' de 8'+(n===8?' · llamada completa':'')}b.addEventListener('change',u);document.getElementById('qreset').addEventListener('click',function(){b.querySelectorAll('input').forEach(function(i){i.checked=false});u()});})();</script>
+<script>(function(){var m=document.getElementById('mt'),n=document.getElementById('sn');if(m)m.addEventListener('click',function(){document.body.classList.toggle('menu-open')});if(n)n.addEventListener('click',function(e){if(e.target.closest('a'))document.body.classList.remove('menu-open')});})();</script>
+<script>(function(){document.querySelectorAll('table').forEach(function(t){var th=t.querySelectorAll('thead th');if(th.length<3)return;t.classList.add('tcards');var L=[].map.call(th,function(x){return x.textContent.trim()});t.querySelectorAll('tbody tr').forEach(function(r){[].forEach.call(r.children,function(c,i){if(L[i])c.setAttribute('data-label',L[i])})})});})();</script>
+<style>#cs-home{position:fixed;left:16px;bottom:16px;z-index:50;background:#060606;color:#C9A84C;border:1px solid #8E763A;border-radius:6px;padding:9px 14px;font:600 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.5)}#cs-home:hover{background:#C9A84C;color:#060606}@media print{#cs-home{display:none}}</style><a id="cs-home" href="index.html">← Portada</a>
+</body>
+</html>
